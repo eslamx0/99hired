@@ -1,0 +1,31 @@
+.ql-container {
+    font-size: 30px;
+    }
+
+/* Style specific elements within the Quill editor */
+#editor p {
+    font-size: larger !important;
+}
+
+/* Style specific elements within the Quill editor */
+#editor li {
+    font-size: larger !important;
+}
+
+#editor ul {
+    
+}
+
+li.ql-indent-1 {
+    text-indent: 2ch;
+}
+
+li.ql-indent-2 {
+    text-indent: 4ch;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 100px;
+    }
+}

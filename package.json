@@ -1,0 +1,33 @@
+{
+  "name": "boardx",
+  "version": "1.0.0",
+  "description": "my job board project...",
+  "main": "index.js",
+  "scripts": {
+    "start:prod": "NODE_ENV=production node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HishamElmorsi7/boardx.git"
+  },
+  "author": "Hisham Elmorsi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HishamElmorsi7/boardx/issues"
+  },
+  "homepage": "https://github.com/HishamElmorsi7/boardx#readme",
+  "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "axios": "^1.6.2",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.9.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.0.3",
+    "node-fetch": "^2.6.12",
+    "pug": "^3.0.2",
+    "slugify": "^1.6.6",
+    "validator": "^13.9.0"
+  }
+}

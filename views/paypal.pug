@@ -1,0 +1,16 @@
+extends base
+
+block library
+  script(src=`https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=USD`)
+
+block content
+    section(class="pt-52 pb-52 bg-gray-50 overflow-hidden")
+        div(class="container mx-auto px-4")
+            div(class="max-w-xl mx-auto")
+                div(class="p-px bg-gradient-cyan rounded-10 shadow-7xl")
+                    div(class="p-12 text-center rounded-10 bg-white")
+                        div(id="paypal-button-container")
+
+
+block script
+  script(src='/js/index.js')

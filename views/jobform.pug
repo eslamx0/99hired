@@ -1,0 +1,122 @@
+extends base
+
+block library 
+    link(href="https://cdn.quilljs.com/1.0.0/quill.snow.css", rel="stylesheet")
+
+block content 
+    section(class="relative pt-32 bg-gradient-gray2 overflow-hidden p-6")
+        img(class="absolute top-1/2 transform -translate-y-1/2 left-0", src="gradia-assets/elements/sign-up/radial.svg", alt="")
+        div(class="relative z-10 container mx-auto px-4")
+            div(class="flex flex-wrap -m-6 justify-center")
+                div(class="w-full p-6 flex justify-center pb-20")
+                    div(class="md:max-w-xl text-center")
+                        h2(class="mb-3 font-heading font-bold text-gray-900 text-6xl sm:text-7xl") Post a Job
+                        p(class="mb-12 text-lg text-gray-500") Please fill out the following details to post your job. For later edit or delete you can certainly contact us ;)
+                        |       
+                        form(class="job-form flex flex-wrap -m-2 mb-6")
+                            div(class="w-full p-2")
+                                input(class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg", type="text", placeholder="Company Name", name="company", required)
+                            div(class="w-full p-2")
+                                input(class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg", type="email", placeholder="Email address", name="email", required)
+                            div(class="w-full p-2")
+                                input(class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg", type="text", placeholder="Website", name="website", required)
+                            div(class="w-full p-2")
+                                input(class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg", type="text", placeholder="Position or Job Title", name="title", required)
+                            div(class="w-full p-2")
+                                select(class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg", name="level", required)
+                                    option(value="", disabled="disabled", selected="selected") Select Job Level
+                                    option(value="intern") Intern
+                                    option(value="junior") Junior
+                                    option(value="mid-senior") Mid-Senior
+                                    option(value="senior") Senior
+                                    option(value="architect") Architect
+                                    option(value="lead") Lead
+                            div(class="w-full p-2")
+                                select(class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg", name="workplace_type", required)
+                                    option(value="", disabled="disabled", selected="selected") Select Workplace Type
+                                    option(value="office") Office
+                                    option(value="remote") Remote
+                                    option(value="hybrid") Hybrid
+                            div(class="w-full p-2")
+                                select(class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg", name="tech", required)
+                                    option(value="", disabled="disabled", selected="selected") Select Main Stack
+                                    option(value="javascript") JavaScript
+                                    option(value="python") Python
+                                    option(value="ruby") Ruby
+                                    option(value="java") Java
+                                    option(value="c#") C#
+                                    option(value="go") Go
+                                    option(value="php") PHP
+                                    option(value="-") Other
+                            div(class="w-full p-2")
+                                select(class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg", name="location", required)
+                                    option(value="", disabled="disabled", selected="selected") Select Job Country
+                                    option(value="🇩🇿 Algeria") Algeria
+                                    option(value="🇧🇭 Bahrain") Bahrain
+                                    option(value="🇰🇲 Comoros") Comoros
+                                    option(value="🇩🇯 Djibouti") Djibouti
+                                    option(value="🇪🇬 Egypt") Egypt
+                                    option(value="🇮🇶 Iraq") Iraq
+                                    option(value="🇯🇴 Jordan") Jordan
+                                    option(value="🇰🇼 Kuwait") Kuwait
+                                    option(value="🇱🇧 Lebanon") Lebanon
+                                    option(value="🇱🇾 Libya") Libya
+                                    option(value="🇲🇷 Mauritania") Mauritania
+                                    option(value="🇲🇦 Morocco") Morocco
+                                    option(value="🇴🇲 Oman") Oman
+                                    option(value="🇵🇸 Palestine") Palestine
+                                    option(value="🇶🇦 Qatar") Qatar
+                                    option(value="🇸🇦 Saudi Arabia") Saudi Arabia
+                                    option(value="🇸🇴 Somalia") Somalia
+                                    option(value="🇸🇩 Sudan") Sudan
+                                    option(value="🇸🇾 Syria") Syria
+                                    option(value="🇹🇳 Tunisia") Tunisia
+                                    option(value="🇦🇪 Emirates") Emirates
+                                    option(value="🇾🇪 Yemen") Yemen
+                            div(class="w-full p-2")
+                                input(class="w-full px-5 py-3.5 text-gray-500 placeholder-gray-500 bg-white outline-none focus:ring-4 focus:ring-indigo-500 border border-gray-200 rounded-lg", type="text", placeholder="Enter Application link or email", name="application", required)
+
+                            div(class="w-full p-2 mb-32")
+                                // Create the toolbar container
+                                #toolbar(class="rounded-t-lg")
+
+                                    button.ql-bold Bold
+                                    button.ql-italic Italic
+                                    button.ql-strike Strike
+                                    button.ql-underline Underline
+                                    button.ql-link Link
+                                    button.ql-list(value="ordered") Ordered List
+                                    button.ql-list(value="bullet") Unordered List
+                                    select.ql-header
+                                        option(value="1") Heading 1
+                                        option(value="2") Heading 2
+                                        option(selected) Normal
+
+                                // Create the editor container
+                                #editor(class="rounded-b-lg bg-white")
+                                    p Job Description?🥳  
+
+                            
+                                // Your other form inputs...
+
+                            // Textarea to store Quill editor content
+                            // Your other form inputs...
+
+                            // Textarea to store Quill editor content
+                            textarea#editorContent(name="description", style="display: none")
+                            
+                            button(id="postJobBtn", class="group mb-9 relative flex items-center justify-center font-heading px-24 py-5 mx-auto w-full lg:w-auto uppercase text-white text-xs font-semibold tracking-px bg-gray-900 overflow-hidden rounded-md")
+                                div(class="absolute transform -translate-x-full group-hover:-translate-x-0 h-full w-full transition ease-in-out duration-500 bg-gradient-cyan")
+                                p(class="relative z-10 mr-2") POST JOB NOW
+
+block script
+
+    // Include the Quill library
+    script(src="https://cdn.quilljs.com/1.0.0/quill.js")
+    script.
+        var editor = new Quill('#editor', {
+        modules: { toolbar: '#toolbar' },
+        theme: 'snow',
+        });
+    
+    script(src="/js/index.js") 

@@ -1,0 +1,50 @@
+section(class="overflow-hidden pb-10 pt-20", id="jobContent")
+    div(class="container mx-auto px-4")
+        div(class="flex flex-wrap -m-8 justify-center items-center") <!-- Centering the div -->
+            div(class="w-full p-8")
+                if jobs.length > 0
+                    each job in jobs
+                        if job.revised
+                            div
+                                div(class="h-0.5 bg-gradient-cyan")
+                                div(class="flex flex-wrap items-center py-7 -m-2 hover:opacity-70")
+
+                                    div(class="w-full md:w-1/2 p-2")
+
+
+                                        h3(class="font-heading font-bold text-xl text-gray-900")= job.title.charAt(0).toUpperCase() + job.title.slice(1)
+
+                                        p(class="text-lg text-gray-500")= job.company
+                                        h3(class="w-1/5 text-transparent bg-clip-text bg-gradient-purple2 bg-gradient-cyan font-bold", contenteditable="false")= job.created_at.toLocaleString('en-us', {month: 'short', day: 'numeric'})
+                                        
+                                    div(class="w-full md:w-1/2 p-2")
+                                        div(class="flex flex-wrap items-center justify-between")
+                                            div(class="w-auto p-2")
+                                                //- Before removing workplace_type
+                                                //- p(class="text-lg text-gray-900")= job.workplace_type.charAt(0).toUpperCase() + job.workplace_type.slice(1)+ " " + "📍 "  + job.location
+                                                //- After removing
+                                                p(class="text-lg text-gray-900")= "📍 "  + job.location
+
+                                            div(class="w-auto p-2")
+                                                a(href=`/jobs/${job.slug}`) 
+                                                    button(class="group relative font-heading py-2 px-4 block w-full md:w-auto text-base text-white font-medium bg-gray-900 overflow-hidden rounded-lg")
+                                                        div(class="absolute top-0 left-0 transform -translate-x-full group-hover:-translate-x-0 h-full w-full transition ease-in-out duration-500 bg-gradient-cyan")
+                                                        p(class="relative z-10") View Full Details
+                        
+
+                    div(class="h-0.5 bg-gradient-cyan")
+                    div(class='jobShownInfo')                        
+                        div(class="flex flex-wrap items-center py-7 -m-2 hover:opacity-70")
+                            div(class="w-full md:w-1/2 p-2")
+                                p(class="bg-clip-text bg-gradient-cyan2 font-heading uppercase font-semibold tracking-px text-transparent") Showing 40 results of total results
+                            div(class="w-full md:w-1/2 p-2")
+                                div(class="flex flex-wrap items-center justify-between")
+                                    div(class="w-auto p-2")
+                                    div(class="w-auto p-2")
+                                        a(href=`/jobs`) 
+                                            button(class="group relative font-heading py-2 px-4 block w-full md:w-auto text-base text-white font-medium bg-gray-900 overflow-hidden rounded-lg")
+                                                div(class="absolute top-0 left-0 transform -translate-x-full group-hover:-translate-x-0 h-full w-full transition ease-in-out duration-500 bg-gradient-cyan")
+                                                p(class="relative z-10") View All Results
+
+                else 
+                    h3(class="flex justify-center items-center font-bold mb-4 text-transparent bg-clip-text font-heading text-xl bg-gradient-cyan") 🌤️ Oh no! No job opportunities are available at this time!

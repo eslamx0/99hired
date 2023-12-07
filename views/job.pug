@@ -1,0 +1,58 @@
+extends base
+
+mixin infoBox(label, value)
+    div(class="w-full sm:w-1/2 lg:w-1/4 p-2")
+        div(class="px-5 py-3 h-full bg-white rounded-lg")
+            div(class="flex flex-wrap -m-2 justify-center text-center")
+                div(class="w-auto p-2")
+                    p(class="mb-4 text-sm text-neutral-500 font-medium")= label
+                    h3(class="font-heading text-3xl font-semibold", contenteditable="false")= value
+
+mixin jobDescription()
+    div!= job.description
+
+
+block content 
+
+    section(class="relative overflow-hidden py-20")
+        div(class="container mx-auto px-4")
+            p(class="mb-5 font-heading font-semibold text-xs text-gray-400 text-center uppercase tracking-px")= job.company.toUpperCase()
+            h2(class="font-heading font-semibold text-6xl text-gray-900 text-center sm:text-7xl")= job.title
+    section(class="py-4 overflow-hidden")
+        div(class="container px-4 mx-auto")
+            div(class="flex flex-wrap -m-2")
+
+                - const date = job.created_at.toLocaleString('en-us', {month: 'long', day: 'numeric'})
+                +infoBox('Date Posted', date )
+                +infoBox('Work Type', job.workplace_type.toUpperCase())
+                +infoBox('Job Level', job.level.toUpperCase())
+                +infoBox('Job Location', job.location)
+
+    section(class="relative pt-28 overflow-hidden")
+        div(class="min-h-screen flex items-center justify-center bg-gray-100 pt-20 pb-20")
+            div(class="bg-white rounded-lg shadow-lg max-w-md p-8 max-w-lg max-w-2xl max-w-3xl max-w-5xl p-12 p-14")
+                div(class="mb-6")
+
+                    .content !{job.description}
+                    br
+                    
+                    if job.application.includes('@')
+
+                        a(href=`mailto:${job.application}`) 
+                            button(id="applyBtn" class="mt-1 group relative font-heading font-semibold w-full md:w-auto py-2 px-4 text-xs text-white bg-gray-900 hover:bg-gray-800 uppercase overflow-hidden rounded-md tracking-px")
+                                div(class="absolute top-0 left-0 transform -translate-y-full group-hover:-translate-y-0 h-full w-full transition ease-in-out duration-500 bg-gradient-cyan")
+                                p(class="relative z-10") Apply Now 🚀
+                    else 
+                        a(href=job.application)
+                            button(id="applyBtn" class="mt-1 group relative font-heading font-semibold w-full md:w-auto py-2 px-4 text-xs text-white bg-gray-900 hover:bg-gray-800 uppercase overflow-hidden rounded-md tracking-px")
+                                div(class="absolute top-0 left-0 transform -translate-y-full group-hover:-translate-y-0 h-full w-full transition ease-in-out duration-500 bg-gradient-cyan")
+                                p(class="relative z-10") Apply Now 🚀
+
+                                
+
+
+
+
+                //- need to inject job description
+block script
+    script(src="/js/index.js") 
